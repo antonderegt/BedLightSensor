@@ -9,7 +9,7 @@
 */
 
 #include <NewRemoteReceiver.h>
-const int relay = 7;
+const int relay = 4;
 const int data = 2;
 
 void setup() {
@@ -27,14 +27,13 @@ void setup() {
 
 void loop() {
 }
-
-// Callback function is called only when a valid code is received.
-void showCode(NewRemoteCode receivedCode) {
+  // Callback function is called only when a valid code is received.
+  void showCode(NewRemoteCode receivedCode) {
   // Note: interrupts are disabled. You can re-enable them if needed.
-  if (receivedCode.address == 15986790 and receivedCode.unit == 0 and receivedCode.switchType == 0){
+  if (receivedCode.address == 15986790 and receivedCode.unit == 3 and receivedCode.switchType == 0){
     //pin low
     digitalWrite(relay, HIGH);
-  } else if (receivedCode.address == 15986790 and receivedCode.unit == 0 and receivedCode.switchType == 1){
+  } else if (receivedCode.address == 15986790 and receivedCode.unit == 3 and receivedCode.switchType == 1){
     // pin high
     digitalWrite(relay, LOW);
   }
